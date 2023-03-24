@@ -156,17 +156,3 @@ def que2097():
             l = mid + 1
     return res
 
-def que2122():
-
-    n = int(input())
-    m = int(input())
-
-    dic = {}
-    def sumnum(i):
-        return sum(list(map(int,str(i))))
-    for i in range(1,n+1):
-        dic[i] = sumnum(i)
-    print(dic)
-
-    return 0
-que2122()
