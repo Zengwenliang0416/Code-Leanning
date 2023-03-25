@@ -12,8 +12,8 @@ def que2381():
 
 
 def que2385():
-    n = int(input().split())
-    a = list(map, int(input().split()))
+    # n = int(input().split())
+    # a = list(map, int(input().split()))
 
     def isPrime(n):
         if n == 2 or n == 3:
@@ -25,3 +25,21 @@ def que2385():
                 if n % i == 0 or n % (i + 2) == 0:
                     return False
             return True
+        
+    def isFactor(n):
+        for i in range(2,int(n**0.5)+1):
+            if n%i == 0:
+                if isPrime(i):
+                    return i
+        return n
+
+
+def que2040():
+    a = 6
+    b = 20**22%7
+    print(b)
+    if (a+b)%7 == 0:
+        return 7
+    return (a+b)%7
+
+print(que2040())
