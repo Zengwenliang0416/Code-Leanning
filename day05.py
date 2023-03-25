@@ -42,3 +42,4 @@ def que2040():
     return (a+b)%7
 
 print(que2040())
+que2040()
