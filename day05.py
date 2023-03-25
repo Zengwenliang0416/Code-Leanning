@@ -37,7 +37,6 @@ def que2385():
 def que2040():
     a = 6
     b = 20**22%7
-    print(b)
     if (a+b)%7 == 0:
         return 7
     return (a+b)%7
