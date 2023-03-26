@@ -40,6 +40,3 @@ def que2040():
     if (a+b)%7 == 0:
         return 7
     return (a+b)%7
-
-print(que2040())
-que2040()
