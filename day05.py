@@ -41,8 +41,4 @@ def que2040():
         return 7
     return (a+b)%7
 
-def que():
-
-    return
-
 
