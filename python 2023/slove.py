@@ -51,21 +51,31 @@ def que2155():
     print(len(res))
 
 def que2127():
+    # 58%
     s = list(input())
-    
-    count = 0
-    l ,r = 0,0
-    for i in range(1,len(s)-1):
-            while len(s) > 2:
-                if s[i] == s[i-1] and s[i]!=s[i+1]:
-                    l == i
-                if s[i] != s[i-1] and s[i]==s[i+1]:
-                    r == i+1
-                    del s[l,r+1]
-                if count >= 2**64:
-                    print("".join(s))
-                    break
+    last_lenth = 0
+    while True:
+        lenth  = len(s)
+        if lenth == 0:
+            print("EMPTY")
+            break
+        if last_lenth == lenth:
             print("".join(s))
+            break
+        new_s = [0]*lenth
+        for i in range(lenth):
+            if i-1 >= 0 and i+1<lenth and s[i-1] == s[i] and s[i]!=s[i+1]:
+                new_s[i] = new_s[i+1] = 1
+            if i-1>=0 and i+1<lenth and s[i-1] != s[i] and s[i]==s[i+1]:
+                new_s[i] = new_s[i-1] = 1
+        tem_s = []
+        for i in range(lenth):
+            if new_s[i] == 0:
+                tem_s.append(s[i])
+        s = tem_s
+        last_lenth = lenth
+que2127()
+
+
         
 
-que2127()
