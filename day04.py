@@ -12,33 +12,70 @@ def que2122():
     ordic = sorted(dic.items(), key=lambda x: x[1])
     print(ordic[m - 1][0])
     return 0
-
+from math import *
 
 def que2117():
-    #  55%
-    n = int(input())
-    h = list(map(int, input().split()))
-    a = [[0 for j in range(1)] for i in range(len(h))]
+    # #  55%
+    # n = int(input())
+    # h = list(map(int, input().split()))
+    # a = [[0 for j in range(1)] for i in range(len(h))]
 
-    def cut(x):
-        return int((x // 2 + 1) ** 0.5 // 1)
+    # def cut(x):
+    #     return int((x // 2 + 1) ** 0.5 // 1)
 
-    count = 0
-    for i in range(len(h)):
-        while h[i] != 1:
-            h[i] = cut(h[i])
-            a[i].append(h[i])
-            count += 1
-    for i in range(n - 1):
-        for j in range(min(len(a[i]), len(a[i + 1]))):
-            if a[i][j] == 0:
-                continue
-            elif a[i][j] == a[i + 1][j]:
-                if a[i][j] == 1 and a[i][j - 1] != 0:
-                    continue
-                count -= 1
-    print(count)
-    return 0
+    # count = 0
+    # for i in range(len(h)):
+    #     while h[i] != 1:
+    #         h[i] = cut(h[i])
+    #         a[i].append(h[i])
+    #         count += 1
+    # for i in range(n - 1):
+    #     for j in range(min(len(a[i]), len(a[i + 1]))):
+    #         if a[i][j] == 0:
+    #             continue
+    #         elif a[i][j] == a[i + 1][j]:
+    #             if a[i][j] == 1 and a[i][j - 1] != 0:
+    #                 continue
+    #             count -= 1
+    # print(count)
+    def msqrt(x):
+        l = 0
+        r = x
+        while l <= r:
+            mid = l+r >> 1 
+            if mid*mid <= x: 
+                s = mid; 
+                l = mid + 1; 
+            else :
+                r = mid - 1; 
+        return s
+    n=int(input())
+    l=list(map(int,input().split()))
+
+    all_lis = []
+    ans = 0
+
+    for i in range(n):
+        li = [1]  # 确保剪裁后的矩阵中有值
+        while l[i]>1:
+            ans+=1
+            li.append(l[i])
+            # l[i] = floor(sqrt(floor(l[i]/2)+1))
+            l[i] = msqrt(floor(l[i]/2)+1)
+        all_lis.append(li)
+    
+    for i in range(1,n):
+        # 消除初始长度1的影响，因为在all_lis的数组中会记录
+        # 除最后一次施法的长度（即为1）。
+        ans+=1  
+        # 只要在相邻的两颗竹子施法后的长度相等的话就说明可以一起使用魔法，魔法
+        # 次数-1
+        for j in all_lis[i-1]:
+            if j in all_lis[i]:
+                ans-=1
+    print(ans)
+
+que2117()
 
 
 def que2380():
@@ -91,4 +128,5 @@ def que2097():
         else:
             l = mid + 1
     print(res)
-que2097()
+# que2097()
+
