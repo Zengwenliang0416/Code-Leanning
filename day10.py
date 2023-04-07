@@ -52,3 +52,5 @@ def que364():
         else:
             r = mid - 1
     print(l)
+
+
