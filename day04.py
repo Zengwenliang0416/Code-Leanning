@@ -3,15 +3,18 @@ def que2122():
     m = int(input())
 
     dic = {}
+    # 计算数位和
     def sumnum(i):
         return sum(list(map(int, str(i))))
 
     for i in range(1, n + 1):
         dic[i] = sumnum(i)
-
+    a = dic.items()
+    # 将字典按照值进行排序
     ordic = sorted(dic.items(), key=lambda x: x[1])
     print(ordic[m - 1][0])
     return 0
+que2122()
 from math import *
 
 def que2117():
