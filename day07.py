@@ -3,7 +3,6 @@ def que616():
     for i in range(40):
         for j in range(40):
             for k in range(40):
-
                 if 3**i*5**j*7**k <= 59084709587505:
                     count += 1
                 else :
@@ -190,3 +189,5 @@ while r <= n:
         r += 1
 
 print(count)
+
+

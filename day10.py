@@ -52,5 +52,25 @@ def que364():
         else:
             r = mid - 1
     print(l)
+n,m=4,3
+chose = []
+def calc(x):
+    if len(chose) > m:
+        return
+    if len(chose) + n - x + 1 < m:
+        return
+    if x == n+1:
+        for i in chose:
+            print(i,end=' ')
+        print("")
+        return
+    calc(x+1)
+    chose.append(x)
+    calc(x+1)
+    chose.pop()
+calc(1)
 
-
+from itertools import permutations
+a = [1,2,3,4,5]
+for i in permutations(a):
+    print(i)
